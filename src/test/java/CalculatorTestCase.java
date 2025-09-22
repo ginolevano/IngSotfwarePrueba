@@ -63,9 +63,9 @@ public class CalculatorTestCase {
         //le estamos dando un nombre Descriptivo al Testing
         @DisplayName("CalculatorTotal should work!!") 
         void TestTotal(){
-            List<Double> calculoTotal = Arrays.asList(3.0, 5.0);
+            List<Double> calculoTotal = Arrays.asList(0.1, 0.1);
             double result = calculator.calculateTotal(calculoTotal);
-            assertEquals(8.0,result);
+            assertEquals(0.2,result);
         }
         
     }
