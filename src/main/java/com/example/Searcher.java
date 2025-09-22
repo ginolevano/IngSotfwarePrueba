@@ -56,4 +56,9 @@ public class Searcher {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'searchExactPhrase'");
     }
+
+	public String getWordByIndex(String[] name, int index) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getWordByIndex'");
+	}
 }
