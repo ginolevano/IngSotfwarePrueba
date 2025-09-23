@@ -54,7 +54,7 @@ public class Searcher {
         }
         return results;
     }
-
+// lanza Exception si hay alguna errror en la funcion!
     public String searchExactPhrase(String phrase, String string) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'searchExactPhrase'");

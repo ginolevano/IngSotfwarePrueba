@@ -63,9 +63,6 @@ public class SearcherTest {
         List<String> result =  searcher.filterByKeyword("123",name);
         //esperamos ambos resultado porque ambos contienen 123
         assertEquals(Arrays.asList("1234","123","12345"),result);
-    }
-
+    }    
     
-    
-
 }
