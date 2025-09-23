@@ -10,9 +10,12 @@ public class Searcher {
         for (String item : names) {
             if (item.equals(phrase)) {
                 return true;
-            } else {
-                return false;
-            }
+            } // Quitamos el else que devolvía false
+            // porque hacía que el método terminara al comprobar solo el primer elemento.
+            // Eso significaba que si la primera palabra no coincidía, ya detiene la búsqueda.
+            //Lo que queremos es recorrer todo el array:
+            // y si encontramos la palabra → devolvemos true
+            //si terminamos el recorrido sin encontrarla → devolvemos false
         }
         return false;
     }
