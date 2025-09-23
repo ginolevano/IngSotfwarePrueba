@@ -26,8 +26,7 @@ public class SearcherTest {
     @DisplayName("ESTE EL NOMBRE QUE PONEMOS A TEST UNITARIO")
     void TestsearchExactPhrase(){
         String[] names = {"gino","gino"};
-//HEMOS ENCONTRADO UN ERROR EN ESTE FRACMENTO DE CODIGO.... LINEA 13
-//EL ELSE DEBERIA ESTA FUERA DEL IF...
+//HEMOS ENCONTRADO UN ERROR EN ESTE FRAGMENTO DE CÓDIGO.... LINEA 13
         boolean result = searcher.searchExactPhrase("gino",names);
         assertEquals(true, result);
     }
