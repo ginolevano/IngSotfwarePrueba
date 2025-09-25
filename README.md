@@ -1,4 +1,4 @@
-# Proyecto Java Maven - [Nombre del Proyecto]
+# Proyecto Java Maven - Introducción a la Ing. del Software
 
 Este proyecto es una plantilla base para comenzar a trabajar con aplicaciones Java utilizando Maven. Asegúrate de seguir las instrucciones para configurar tu entorno correctamente y entender cómo contribuir al proyecto.
 
@@ -88,3 +88,4 @@ Si deseas contribuir a este proyecto, por favor sigue estos pasos:
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT - consulta el archivo LICENSE para más detalles.
+
