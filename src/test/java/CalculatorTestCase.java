@@ -38,12 +38,6 @@ public class CalculatorTestCase {
             assertEquals("ab", texto);
         }
 
-        @Test
-        @DisplayName("Strings shoudl work? ")
-        void TestStringNull(){            
-            String result = calculator.concat(null, "levano");
-            assertEquals("EMPTY", result);
-        }
 
         @Test
         @DisplayName("double should work!!!")

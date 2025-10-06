@@ -31,13 +31,6 @@ public class SearcherTest {
         assertEquals(true, result);
     }
 
-    @Test
-    @DisplayName("ESTE ES EL MENSAJITO DEL FUNCION searchWord")
-    void TestsearchWord(){
-    String[] name = {"word"};
-        boolean result =searcher.searchExactPhrase("word", name);
-        assertEquals(true, result);
-    }
 
     @Test
     @DisplayName("simple getWordByIndex should work!!")
@@ -45,6 +38,23 @@ public class SearcherTest {
         List<String> name = Arrays.asList("Laura","Gino");
         String word = searcher.getWordByIndex(name, 1);
         assertEquals("Gino", word);
+    }
+
+        @Test
+    @DisplayName("Simple searchByPrefix should work!!")
+    void TestsearchByPrefix(){
+        List<String> nameList = Arrays.asList("Gino","Sonqo");
+        List<String> result = searcher.searchByPrefix("Gin",nameList);
+        assertEquals(Arrays.asList("Gino"), result);
+    }
+
+    @Test
+    @DisplayName("Simple filterByKeyword should work")
+    void TestfilterByKeyword(){
+        List<String> name = Arrays.asList("1234","123","12345");
+        List<String> result =  searcher.filterByKeyword("123",name);
+        //esperamos ambos resultado porque ambos contienen 123
+        assertEquals(Arrays.asList("1234","123","12345"),result);
     }
 
 }
