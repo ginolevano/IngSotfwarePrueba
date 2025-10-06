@@ -10,12 +10,7 @@ public class Searcher {
         for (String item : names) {
             if (item.equals(phrase)) {
                 return true;
-            } // Quitamos el else que devolvía false
-            // porque hacía que el método terminara al comprobar solo el primer elemento.
-            // Eso significaba que si la primera palabra no coincidía, ya detiene la búsqueda.
-            //Lo que queremos es recorrer todo el array:
-            // y si encontramos la palabra → devolvemos true
-            //si terminamos el recorrido sin encontrarla → devolvemos false
+            }
         }
         return false;
     }
@@ -54,14 +49,5 @@ public class Searcher {
         }
         return results;
     }
-// lanza Exception si hay alguna errror en la funcion!
-    public String searchExactPhrase(String phrase, String string) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'searchExactPhrase'");
-    }
 
-	public String getWordByIndex(String[] name, int index) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getWordByIndex'");
-	}
 }

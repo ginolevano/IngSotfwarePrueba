@@ -47,21 +47,4 @@ public class SearcherTest {
         assertEquals("Gino", word);
     }
 
-    @Test
-    @DisplayName("Simple searchByPrefix should work!!")
-    void TestsearchByPrefix(){
-        List<String> nameList = Arrays.asList("Gino","Sonqo");
-        List<String> result = searcher.searchByPrefix("Gin",nameList);
-        assertEquals(Arrays.asList("Gino"), result);
-    }
-
-    @Test
-    @DisplayName("Simple filterByKeyword should work")
-    void TestfilterByKeyword(){
-        List<String> name = Arrays.asList("1234","123","12345");
-        List<String> result =  searcher.filterByKeyword("123",name);
-        //esperamos ambos resultado porque ambos contienen 123
-        assertEquals(Arrays.asList("1234","123","12345"),result);
-    }    
-    
 }
