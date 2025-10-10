@@ -38,7 +38,6 @@ public class CalculatorTestCase {
             assertEquals("ab", texto);
         }
 
-
         @Test
         @DisplayName("double should work!!!")
         void TestDouble(){

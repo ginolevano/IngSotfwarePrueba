@@ -39,7 +39,6 @@ public class SearcherTest {
         String word = searcher.getWordByIndex(name, 1);
         assertEquals("Gino", word);
     }
-
         @Test
     @DisplayName("Simple searchByPrefix should work!!")
     void TestsearchByPrefix(){
