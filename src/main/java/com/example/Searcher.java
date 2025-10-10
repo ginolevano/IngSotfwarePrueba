@@ -5,16 +5,6 @@ import java.util.List;
 
 public class Searcher {
 
-    // Checks if the phrase exists in the list
-    public boolean searchExactPhrase(String phrase, String[] names) {
-        for (String item : names) {
-            if (item.equals(phrase)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     // Simple contains check
     public boolean searchWord(String word, List<String> list) {
         return list.contains(word);
@@ -48,6 +38,16 @@ public class Searcher {
             }
         }
         return results;
+    }
+
+       // Checks if the phrase exists in the list
+    public boolean searchExactPhrase(String phrase, String[] names) {
+        for (String item : names) {
+            if (item.equals(phrase)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
