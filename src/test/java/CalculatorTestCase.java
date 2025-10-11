@@ -57,16 +57,13 @@ public class CalculatorTestCase {
         @Test
         @DisplayName("Concat should return EMPTY when input is null")
         void testConcatNull(){
+            
             String resultado = calculator.concat(null,"b");
             assertEquals(Calculator.EMPTY,resultado);
-
             resultado = calculator.concat("a", null);
             assertEquals(Calculator.EMPTY,resultado);
-
             resultado = calculator.concat(null,null);
             assertEquals(Calculator.EMPTY,resultado);
-
-
         }
 
         @Test
@@ -97,7 +94,6 @@ public class CalculatorTestCase {
             assertThrows(IllegalArgumentException.class,() -> calculator.discount(100.0,-5.0));
             assertThrows(IllegalArgumentException.class,() -> calculator.discount(100.0,150.0));
         }
-
 //Anota correctamente q es un test
         @Test 
         //le estamos dando un nombre Descriptivo al Testing

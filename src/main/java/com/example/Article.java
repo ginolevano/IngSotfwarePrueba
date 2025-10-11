@@ -9,7 +9,7 @@ public class Article {
     private double precio;
     private double descuento;
 
-    public Article(String nombre,int cantidad,double precio, double descuento){
+    public Article(String nombre, int cantidad, double precio, double descuento){
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio = precio;
@@ -23,7 +23,7 @@ public class Article {
         this.nombre = nombre;
     }
 
-    public int cantidad(){
+    public int getCantidad(){
         return cantidad;
     }
 
@@ -46,10 +46,13 @@ public class Article {
         this.descuento = descuento;
     }
     public double getGrossAmount(){
-        return calculator.multiply(cantidad,(int)precio);
+        return calculator.multiply((int)precio,cantidad);
     }
-    
     public double getDiscountedAmount(){
-        return descuento;
+        
+        double bruto = getGrossAmount();
+        return calculator.discount(getGrossAmount(), descuento);
     }
+
+
 }
