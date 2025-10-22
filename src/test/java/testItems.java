@@ -3,30 +3,30 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.example.Items;
+import com.example.Article;
 import com.example.*;
 
-public class testItems {
+public class testArticle {
     
     @Test
     @DisplayName("Constructor")
     void TestConstructor(){
-        Items items = new Items("CPU",100.0);
-        assertEquals("CPU",items.getNombre());
-        assertEquals(100.0,items.getPrecio(),0.0001);
+        Article Article = new Article("CPU",100.0);
+        assertEquals("CPU",Article.getNombre());
+        assertEquals(100.0,Article.getPrecio(),0.0001);
     }
 
     @Test
     @DisplayName("Getters & Setters")
     void testGettersAndSetters(){
 
-        Items items = new Items("Test",0.0);
+        Article Article = new Article("Test",0.0);
 
-        items.setNombre("pantalla");
-        assertEquals("pantalla",items.getNombre());
+        Article.setNombre("pantalla");
+        assertEquals("pantalla",Article.getNombre());
 
-        items.setPrecio(200.0);
-        assertEquals(200.0,items.getPrecio(),0.0001);
+        Article.setPrecio(200.0);
+        assertEquals(200.0,Article.getPrecio(),0.0001);
 
     }
 
