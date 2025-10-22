@@ -38,6 +38,13 @@ public class OrderTestCase {
         double expected = 27.0; 
         assertEquals(expected, discountedOrder.getDiscountedTotal(), 0.001);
     }
+    @Test
+    @DisplayName("getGrossTotal and getDiscountedTotal should return 0 for empty list")
+void testEmptyOrder() {
+    Order emptyOrder = new Order("000", new ArrayList<>());
+    assertEquals(0.0, emptyOrder.getGrossTotal(), 0.001);
+    assertEquals(0.0, emptyOrder.getDiscountedTotal(), 0.001);
+}
 
     @Test
     @DisplayName("GettersAndSetter should work!")
@@ -56,5 +63,13 @@ public class OrderTestCase {
         assertEquals(20.0,newOrder.getGrossTotal(),0.001);
 
     }
+
+    @Test
+    @DisplayName("toString should include id and totals")
+void testToString() {
+    String text = order.toString();
+    assertEquals(true, text.contains(order.getIdPedido()));
+}
+
 
 }
