@@ -34,7 +34,6 @@ public class Order {
         }
         return total;
     }
-
     //meotodo que calcula total de todos los  Article!!
     public double getDiscountedTotal(){
         double total = 0.0;
@@ -43,7 +42,6 @@ public class Order {
             total += article.getDiscountedAmount();
         }
         return total;
-        
     }
 
     @Override

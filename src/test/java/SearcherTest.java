@@ -129,7 +129,6 @@ void  TestSearchByPrefix_isVacio(){
         assertTrue(resultado.isEmpty());
     }
 
-
     @Test
     @DisplayName("Searcher default constructor should be work")
     void TestSearcherConstructor(){
