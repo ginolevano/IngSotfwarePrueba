@@ -45,13 +45,16 @@ public class Article {
     public void setDescuento(double descuento){
         this.descuento = descuento;
     }
+
+    //calcula el total bruto cantidad * precio
     public double getGrossAmount(){
-        return calculator.multiply((int)precio,cantidad);
+        return calculator.multiply((int)precio,(int)cantidad);
     }
+
     public double getDiscountedAmount(){
         
         double bruto = getGrossAmount();
-        return calculator.discount(getGrossAmount(), descuento);
+        return calculator.discount(bruto, descuento);
     }
 
 

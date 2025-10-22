@@ -17,7 +17,7 @@ public class ArticleTestCase {
     
     @Test
     @DisplayName("simple getGrossTotal should work")
-    void TestgetGrossTotal(){
+    void getGrossAmount(){
         double expected = 30.0;
         assertEquals(expected,article.getGrossAmount(),0.0001);
     }

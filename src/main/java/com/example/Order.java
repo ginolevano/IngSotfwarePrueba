@@ -5,6 +5,12 @@ public class Order {
     private String idPedido;
     private ArrayList<Article> ListaArticulos ;
 
+//CONSTRUCTOR 
+    public Order(String idPedido,ArrayList<Article> ListaArticulos) {
+        this.idPedido = idPedido;
+        this.ListaArticulos = ListaArticulos;
+}
+
 //GETTERS AND SETTERS
     public ArrayList<Article> getListaArticulos() {
         return ListaArticulos;
@@ -19,28 +25,33 @@ public class Order {
         this.idPedido = idPedido;
     }
 
-    //CONSTRUCTOR 
-    public Order(String idPedido,ArrayList<Article> ListaArticulos) {
-        this.idPedido = idPedido;
-        this.ListaArticulos = ListaArticulos;
-    }
 //meotodo que calcula total precio de Article!!
     public double getGrossTotal(){
         double total = 0.0;
         for(int i = 0; i < ListaArticulos.size(); i++){
             Article Article = ListaArticulos.get(i);
-            total += Article.getPrecio();
+            total += Article.getGrossAmount();
         }
         return total;
     }
 
-//meotodo que calcula total de todos los  Article!!
-    public double getDiscountedTotal(double descuento){
-        double bruto = getGrossTotal();
-        double descuentoTotal = bruto * (descuento / 100.0);
-        return bruto - descuentoTotal;
+    //meotodo que calcula total de todos los  Article!!
+    public double getDiscountedTotal(){
+        double total = 0.0;
+        for(int i = 0; i <  ListaArticulos.size();i++){
+            Article article = ListaArticulos.get(i);
+            total += article.getDiscountedAmount();
+        }
+        return total;
         
     }
+
+    @Override
+    public String toString() {
+        return "Order [idPedido=" + idPedido + ", getGrossTotal()=" + getGrossTotal() + "Total descuento = "+ getDiscountedTotal() +"]";
+    }
+    
+   
 
     
 

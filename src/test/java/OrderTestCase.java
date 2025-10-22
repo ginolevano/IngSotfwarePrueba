@@ -15,23 +15,28 @@ public class OrderTestCase {
     @BeforeEach
     void setUp(){
         ArrayList<Article> lista = new ArrayList<>();
-        lista.add(new Article("Teclado",20.00));
-        lista.add(new Article("Monitor",10.00));
+        lista.add(new Article("Teclado",2,50.00,10.00));
+        lista.add(new Article("Monitor",4,100.0,10.00));
         order = new Order("1234",lista);
     }
 
     @Test
     @DisplayName(" simple getGrossTotal should to return suma of Article total")
     void TestGetGrossTotal(){
-        double sumaTotal = 30.0;//Total cantidad de productos
+        double sumaTotal = 150.0;//Total cantidad de productos
         assertEquals(sumaTotal, order.getGrossTotal(),0.001);
     }
 
     @Test
     @DisplayName("DEscound")
     void TestGetDiscountedTotal(){
-        double esperado = 27.00;//30*0.9=27
-        assertEquals(esperado,order.getDiscountedTotal(10.0),0.001);
+         ArrayList<Article> lista = new ArrayList<>();
+        lista.add(new Article("Teclado", 1, 20.00, 10.0)); // 20 - 10% = 18
+        lista.add(new Article("Monitor", 1, 10.00, 10.0)); // 10 - 10% = 9
+        Order discountedOrder = new Order("5678", lista);
+
+        double expected = 27.0; 
+        assertEquals(expected, discountedOrder.getDiscountedTotal(), 0.001);
     }
 
     @Test
@@ -41,10 +46,10 @@ public class OrderTestCase {
         Order newOrder = new Order("1234",new ArrayList<>());
         
         newOrder.setIdPedido("124");
-        assertEquals("1234",order.getIdPedido());
+        assertEquals("124",newOrder.getIdPedido());
 
         ArrayList<Article> lista = new ArrayList<>();
-        lista.add(new Article("webCam",20.0));
+        lista.add(new Article("webCam",1,20.0,0.0));
 
         newOrder.setListaArticulos(lista);
         assertEquals(lista, newOrder.getListaArticulos());
