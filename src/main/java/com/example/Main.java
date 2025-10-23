@@ -25,7 +25,6 @@ public class Main {
                 log.error("no se encontro el Order.json");
                 return;
             }
-
             List<Order> orders = mapper.readValue(inputStream,new TypeReference<List<Order>>(){});
 
             for(int i = 0; i < orders.size();i++){
