@@ -1,9 +1,8 @@
-import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -109,8 +108,6 @@ void  TestSearchByPrefix_isVacio(){
     assertTrue(resultado.isEmpty());
 
 }
-
-
 //we found
     @Test
     @DisplayName("Simple filterByKeyword should work")
@@ -120,7 +117,7 @@ void  TestSearchByPrefix_isVacio(){
         //esperamos ambos resultado porque ambos contienen 123
         assertEquals(Arrays.asList("1234","123","12345"),result);
     }
-    //we dont found
+//we dont found
     @Test
     @DisplayName("Simple filterByKeyword should work")
     void TestFilterByKeyword_NotFound(){

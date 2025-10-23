@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -46,4 +47,25 @@ public class ArticleTestCase {
         assertEquals(10.0,article.getDescuento());
         
     }
+
+@Test
+@DisplayName("Testing toString and default constructor")
+void TestToStringAndDefaultConstructor() {
+    Article emptyArticle = new Article();
+    emptyArticle.setNombre("0000");
+    emptyArticle.setCantidad(1);
+    emptyArticle.setPrecio(50.0);
+    emptyArticle.setDescuento(5.0);
+
+    String text = emptyArticle.toString();
+    System.out.println("DEBUG toString => " + text);
+
+    assertTrue(text.contains("0000"));
+    assertTrue(text.contains("50") || text.contains("50,00"));
+    assertTrue(text.contains("5") || text.contains("5,0"));
 }
+
+}
+
+
+

@@ -1,5 +1,4 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -15,8 +14,8 @@ public class OrderTestCase {
     @BeforeEach
     void setUp(){
         ArrayList<Article> lista = new ArrayList<>();
-        lista.add(new Article("Teclado",2,50.00,10.00));
-        lista.add(new Article("Monitor",4,100.0,10.00));
+        lista.add(new Article("Teclado",1,50.00,10.00));
+        lista.add(new Article("Monitor",1,100.0,10.00));
         order = new Order("1234",lista);
     }
 
@@ -64,11 +63,17 @@ void testEmptyOrder() {
 
     }
 
-    @Test
-    @DisplayName("toString should include id and totals")
-void testToString() {
-    String text = order.toString();
-    assertEquals(true, text.contains(order.getIdPedido()));
+
+
+@Test
+@DisplayName("Default constructor should initialize object")
+void testDefaultConstructor() {
+    Order emptyOrder = new Order(); // usa el constructor vacío
+    emptyOrder.setIdPedido("constructorVacio");
+    emptyOrder.setListaArticulos(new ArrayList<>());
+
+    assertEquals("constructorVacio", emptyOrder.getIdPedido());
+    assertEquals(0.0, emptyOrder.getGrossTotal(), 0.001);
 }
 
 

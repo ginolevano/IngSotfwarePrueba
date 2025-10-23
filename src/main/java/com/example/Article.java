@@ -1,5 +1,4 @@
 package com.example;
-import com.example.Calculator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Article {

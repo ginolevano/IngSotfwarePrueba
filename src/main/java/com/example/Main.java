@@ -1,5 +1,4 @@
 package com.example;
-
 import java.io.InputStream;
 import java.util.List;
 
@@ -27,7 +26,9 @@ public class Main {
             }
             List<Order> orders = mapper.readValue(inputStream,new TypeReference<List<Order>>(){});
 
+
             for(int i = 0; i < orders.size();i++){
+System.out.println("=============================================================");
                     Order order = orders.get(i);
                     log.debug("Loaded order: {}" , order.getIdPedido());
                     System.out.println("\n PEDIDO : " + order.getIdPedido());
@@ -36,10 +37,9 @@ public class Main {
                         Article articulos = order.getListaArticulos().get(j);
                         System.out.println(" => " + articulos);
                     }
-
+                    System.out.print("------------------------------------------------------------------------\n");
                     System.out.println("Total bruto => "+ order.getGrossTotal());
                     System.out.println("Total descuento => " + order.getDiscountedTotal());
-                    System.out.println("=====");
             }
         }catch(Exception e){
                 log.error("Error al leer .JSON " , e.getMessage());
