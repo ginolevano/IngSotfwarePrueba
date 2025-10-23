@@ -9,7 +9,7 @@ public class Calculator {
     public int multiply(int a, int b) {
         return a * b;
     }
-
+    
     // Concatenate two strings
     public String concat(String a, String b) {
         if (b != null && a != null) {

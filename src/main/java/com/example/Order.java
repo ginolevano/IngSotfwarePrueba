@@ -31,7 +31,7 @@ public class Order {
         this.listaArticulos = listaArticulos;
     }
 
-    // ✅ Optimizado: calcula el total bruto usando Calculator
+    //  calcula el total bruto usando Calculator
     public double getGrossTotal() {
         List<Double> totales = new ArrayList<>();
         for (int i = 0; i < listaArticulos.size(); i++) {
