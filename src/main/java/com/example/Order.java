@@ -8,12 +8,16 @@ public class Order {
     
     private Calculator calculator = new Calculator();
 
+//Mapeamos el nombre de archivo .JSON cuando hay name
+//Guardamos dentro de este atributo llamado NOMBRE
+
     @JsonProperty("id")
     private String idPedido;
 
     @JsonProperty("articles")
     private ArrayList<Article> listaArticulos;
-
+    
+    public Order(){}
     // Constructor
     public Order(String idPedido, ArrayList<Article> listaArticulos) {
         this.idPedido = idPedido;
@@ -51,14 +55,5 @@ public class Order {
             totalesConDescuento.add(listaArticulos.get(i).getDiscountedAmount());
         }
         return calculator.calculateTotal(totalesConDescuento);
-    }
-
-    @Override
-    public String toString() {
-        return "Order {" +
-                "idPedido='" + idPedido + '\'' +
-                ", total bruto=" + getGrossTotal() +
-                ", total con descuento=" + getDiscountedTotal() +
-                '}';
     }
 }

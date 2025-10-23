@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Article {
     
     private Calculator calculator = new Calculator();
-
+//Mapeamos el nombre de archivo .JSON cuando hay name
+//Guardamos dentro de este atributo llamado NOMBRE
     @JsonProperty("name")
     private String nombre;
     @JsonProperty("quantity")
@@ -64,5 +65,14 @@ public class Article {
         return calculator.discount(bruto, descuento);
     }
 
+@Override
+public String toString() {
+    return String.format(
+        "Artículo: %s (x%d) Precio: %.2f€ Descuento: %.1f%%",
+        nombre, cantidad, precio, descuento
+    );
+}
+
+    
 
 }

@@ -19,7 +19,7 @@ public class Main {
         ObjectMapper mapper = new ObjectMapper();
 
         try(InputStream inputStream = Main.class.getResourceAsStream("/orders.json")){
-            System.out.println(Main.class.getResource("/orders.json"));
+            //System.out.println(Main.class.getResource("/orders.json"));
 
             if(inputStream == null){
                 log.error("no se encontro el Order.json");
@@ -30,7 +30,7 @@ public class Main {
 
             for(int i = 0; i < orders.size();i++){
                     Order order = orders.get(i);
-                    log.debug("Order cargado: {}" , order.getIdPedido());
+                    log.debug("Loaded order: {}" , order.getIdPedido());
                     System.out.println("\n PEDIDO : " + order.getIdPedido());
 
                     for(int j = 0; j < order.getListaArticulos().size();j++){
