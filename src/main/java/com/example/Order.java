@@ -2,23 +2,27 @@ package com.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Order {
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-    private String idPedido;
-    private ArrayList<Article> listaArticulos;
+public class Order {
+    
     private Calculator calculator = new Calculator();
+
+    @JsonProperty("id")
+    private String idPedido;
+
+    @JsonProperty("articles")
+    private ArrayList<Article> listaArticulos;
 
     // Constructor
     public Order(String idPedido, ArrayList<Article> listaArticulos) {
         this.idPedido = idPedido;
         this.listaArticulos = listaArticulos;
     }
-
     // Getters y Setters
     public String getIdPedido() {
         return idPedido;
     }
-
     public void setIdPedido(String idPedido) {
         this.idPedido = idPedido;
     }
@@ -40,7 +44,7 @@ public class Order {
         return calculator.calculateTotal(totales);
     }
 
-    // ✅ Optimizado: calcula el total con descuento usando Calculator
+    // calcula el total con descuento usando Calculator
     public double getDiscountedTotal() {
         List<Double> totalesConDescuento = new ArrayList<>();
         for (int i = 0; i < listaArticulos.size(); i++) {
