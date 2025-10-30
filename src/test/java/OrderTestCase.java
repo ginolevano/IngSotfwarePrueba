@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import com.example.Article;
-import com.example.Order;
+
+import com.example.model.Article;
+import com.example.model.Order;
 
 public class OrderTestCase {
     

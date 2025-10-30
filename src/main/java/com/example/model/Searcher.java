@@ -1,4 +1,4 @@
-package com.example;
+package com.example.model;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +47,16 @@ public class Searcher {
             }
         }
         return false;
+    }
+
+    public Order findOrderById(List<Order> orders, int orderId) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findOrderById'");
+    }
+
+    public Order findOrderById(List<Order> orders, int orderId) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findOrderById'");
     }
 
 }

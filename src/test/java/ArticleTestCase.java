@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.example.*;
+import com.example.model.Article;
 
 public class ArticleTestCase {
     
