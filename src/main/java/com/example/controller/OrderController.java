@@ -42,25 +42,30 @@ public class OrderController {
     private void searchOrder() {
         String id = view.getSearchId();
 
-        //... display order if found, else display "Order not found."
-        try {
-            int orderId = Integer.parseInt(id);
 
-            // Buscar pedido
-            Order found = searcher.findOrderById(orders, orderId);
-
-            if (found != null) {
-// Por ejemplo, una tasa de cambio 
-                double rate = 1.0;
-                view.displayOrder(found, rate);
-                log.info("Order found: {}", found.getIdOrder());
-            } else {
-                view.displayOrder(null, 0);
-                log.warn("Order not found with ID: {}", orderId);
-            }
-        } catch (NumberFormatException ex) {
-            log.error("Invalid ID format: {}", id);
+        // display order if found, else display "Order not found."
+               if (id == null || id.trim().isEmpty()) {
+            log.warn("Empty ID provided");
             view.displayOrder(null, 0);
+            return;
         }
+        // Buscar pedido por idPedido (String)
+        Order found = null;
+        for (Order o : orders) {
+            if (o != null && id.equals(o.getIdPedido())) {
+                found = o;
+                break;
+            }
+        }
+
+        if (found != null) {
+            double rate = 1.0; // ejemplo de tipo de cambio
+            view.displayOrder(found, rate);
+            log.info("Order found: {}", found.getIdPedido());
+        } else {
+            view.displayOrder(null, 0);
+            log.warn("Order not found with ID: {}", id);
+        }
+
     }
 }

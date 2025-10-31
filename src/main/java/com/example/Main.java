@@ -2,14 +2,17 @@ package com.example;
 import java.io.InputStream;
 import java.util.List;
 
+import javax.swing.SwingUtilities;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.example.controller.OrderController;
 import com.example.model.Article;
 import com.example.model.Order;
+import com.example.view.OrderView;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 
 public class Main {
     
@@ -42,6 +45,12 @@ System.out.println("============================================================
                     System.out.print("------------------------------------------------------------------------\n");
                     System.out.println("Total bruto => "+ order.getGrossTotal());
                     System.out.println("Total descuento => " + order.getDiscountedTotal());
+//Inicializamos en la clase Main.java el MVC
+                     SwingUtilities.invokeLater(() -> {
+                    OrderView view = new OrderView();
+                        new OrderController(view, orders);
+                });
+
             }
         }catch(Exception e){
                 log.error("Error al leer .JSON " , e.getMessage());
