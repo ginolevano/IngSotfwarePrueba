@@ -1,0 +1,75 @@
+@startuml   Hello wordl
+
+
+
+class Order {
+    - id: Long
+    - articles: List<Article>
+    - totalPrice: Double
+    - status: String
+    + getId(): Long
+    + addArticle(Article): void
+    + removeArticle(Article): void
+    + getArticles(): List<Article>
+    + calculateTotal(): Double
+    + getStatus(): String
+    + setStatus(String): void
+}
+
+class Article {
+    - id: Long
+    - name: String
+    - price: Double
+    - quantity: int
+    - description: String
+    + getId(): Long
+    + getName(): String
+    + getPrice(): Double
+    + getQuantity(): int
+    + setQuantity(int): void
+    + getDescription(): String
+}
+
+class Calculator {
+    + calculateSubtotal(List<Article>): Double
+    + calculateTax(Double): Double
+    + calculateTotal(Double, Double): Double
+    + applyDiscount(Double, Double): Double
+}
+
+class Searcher {
+    + searchArticleById(Long): Article
+    + searchArticleByName(String): List<Article>
+    + searchOrderById(Long): Order
+    + filterByPrice(Double, Double): List<Article>
+}
+
+class OrderController {
+    - searcher: Searcher
+    - calculator: Calculator
+    + createOrder(List<Article>): Order
+    + getOrderById(Long): Order
+    + updateOrder(Order): void
+    + deleteOrder(Long): void
+    + addArticleToOrder(Order, Article): void
+}
+
+class OrderView {
+    - controller: OrderController
+    + displayOrder(Order): void
+    + displayArticles(List<Article>): void
+    + showOrderSummary(Order): void
+}
+
+class Main {
+    + {static} main(String[]): void
+}
+
+Order "1" --> "*" Article : contiene
+OrderController "1" --> "1" Searcher : usa
+OrderController "1" --> "1" Calculator : usa
+OrderController "1" --> "*" Order : gestiona
+OrderView "1" --> "1" OrderController : controla
+Main "1" --> "1" OrderView : inicia
+
+@enduml

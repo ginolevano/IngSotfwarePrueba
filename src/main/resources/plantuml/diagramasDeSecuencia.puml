@@ -1,0 +1,42 @@
+@startuml Hello wordl
+!theme plain
+
+participant Usuario
+participant OrderView
+participant OrderController
+participant Searcher
+participant Order
+participant Article
+
+Usuario -> OrderView: clickVisualizar(orderId)
+activate OrderView
+
+OrderView -> OrderController: getOrderById(orderId)
+activate OrderController
+
+OrderController -> Searcher: searchOrderById(orderId)
+activate Searcher
+
+Searcher --> OrderController: Order encontrada
+deactivate Searcher
+
+OrderController -> Order: getArticles()
+activate Order
+
+Order --> OrderController: List<Article>
+deactivate Order
+
+OrderController -> OrderController: formatearDatos()
+OrderController --> OrderView: Order con artículos
+deactivate OrderController
+
+OrderView -> OrderView: renderizarPedido(order)
+OrderView -> Article: getDetails() [para cada artículo]
+activate Article
+Article --> OrderView: id, nombre, precio, cantidad
+deactivate Article
+
+OrderView --> Usuario: Mostrar pedido en pantalla
+deactivate OrderView
+
+@enduml

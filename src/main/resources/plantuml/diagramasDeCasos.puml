@@ -1,0 +1,32 @@
+@startuml
+!theme plain
+
+left to right direction
+
+actor Usuario
+package "Sistema de Gestión de Pedidos" {
+    usecase "Crear Pedido" as UC1
+    usecase "Agregar Artículo" as UC2
+    usecase "Eliminar Artículo" as UC3
+    usecase "Ver Pedido" as UC4
+    usecase "Buscar Artículo" as UC5
+    usecase "Calcular Total" as UC6
+    usecase "Actualizar Pedido" as UC7
+    usecase "Eliminar Pedido" as UC8
+}
+
+Usuario --> UC1
+Usuario --> UC4
+Usuario --> UC7
+Usuario --> UC8
+
+UC1 .-> UC2 : include
+UC1 .-> UC6 : include
+UC2 .-> UC5 : include
+UC4 .-> UC6 : include
+UC7 --> UC2 : puede
+UC7 --> UC3 : puede
+
+UC1 <-- UC3 : modificar
+
+@enduml
