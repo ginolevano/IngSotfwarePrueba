@@ -1,4 +1,4 @@
-package com.example;
+package com.example.controller;
 import java.io.InputStream;
 import java.util.List;
 
@@ -7,7 +7,6 @@ import javax.swing.SwingUtilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.controller.OrderController;
 import com.example.model.Article;
 import com.example.model.Order;
 import com.example.view.OrderView;

@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.Main;
 import com.example.model.Order;
 import com.example.model.Searcher;
 import com.example.view.OrderView;
