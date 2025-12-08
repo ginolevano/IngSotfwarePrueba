@@ -22,13 +22,10 @@ Se creó la clase **`ExchangeRateService`** que obtiene el tipo de cambio actual
 {
   "result": "success",
   "base_code": "EUR",
-  "target_code": "USD",
-  "conversion_rate": 1.08,
   "rates": {
     "USD": 1.0854,
     "GBP": 0.8350,
-    "JPY": 162.82,
-    ...
+    "JPY": 162.82
   }
 }
 ```
@@ -83,12 +80,12 @@ try {
 
 ## Ventajas de esta Solución
 
-✅ **Gratuita**: No requiere clave API  
-✅ **Simple**: Usa HTTP nativo de Java  
-✅ **Rápida**: Respuesta en milisegundos  
-✅ **Confiable**: API establecida y estable  
-✅ **Sin dependencias externas**: Solo usa Jackson (ya presente)  
-✅ **Documentada**: Javadoc incluido  
+**Gratuita**: No requiere clave API  
+**Simple**: Usa HTTP nativo de Java  
+**Rápida**: Respuesta en milisegundos  
+**Confiable**: API establecida y estable  
+**Sin dependencias externas**: Solo usa Jackson (ya presente)  
+**Documentada**: Javadoc incluido  
 
 ## Alternativas Consideradas
 
@@ -128,7 +125,7 @@ El proyecto ya tiene **Jackson** para parsing JSON:
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-databind</artifactId>
-    <version>2.20.0</version>
+    <version>2.15.2</version>
 </dependency>
 ```
 
