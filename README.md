@@ -4,13 +4,12 @@ Sistema de gestión integral de pedidos desarrollado en **Java 21** con **Maven*
 
 ## 🎯 Funcionalidades Implementadas
 
-✅ **Ver Lista de Pedidos** - Visualizar todos los pedidos disponibles  
-✅ **Buscar Pedido** - Búsqueda rápida por ID de pedido  
-✅ **Crear Nuevo Pedido** - Añadir pedidos con artículos (ID único validado)  
-✅ **Eliminar Pedido** - Borrar pedidos existentes con persistencia  
-✅ **Editar Pedido** - Modificar cantidad y descuento de artículos  
-✅ **Ver Detalles** - Visualizar detalles completos con cálculo de totales en EUR/USD  
-
+ **Ver Lista de Pedidos** - Visualizar todos los pedidos disponibles  
+ **Buscar Pedido** - Búsqueda rápida por ID de pedido  
+ **Crear Nuevo Pedido** - Añadir pedidos con artículos (ID único validado)  
+ **Eliminar Pedido** - Borrar pedidos existentes con persistencia  
+ **Editar Pedido** - Modificar cantidad y descuento de artículos  
+ **Ver Detalles** - Visualizar detalles completos con cálculo de totales en EUR/USD  
 ---
 
 ## 📋 Tabla de Contenidos
@@ -39,7 +38,7 @@ mvn -version
 
 ---
 
-## ⚙️ Instalación
+##  Instalación
 
 ### 1. Clonar/Descargar el Proyecto
 ```bash
@@ -58,7 +57,7 @@ java -jar target/demo-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 ---
 
-## 💻 Cómo Usar
+##  Cómo Usar
 
 ### Pantalla Principal
 
