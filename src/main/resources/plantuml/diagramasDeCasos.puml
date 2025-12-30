@@ -1,10 +1,11 @@
-@startuml
+@startuml DiagramasCasos
 !theme plain
 
 left to right direction
 
 actor Usuario
 package "Sistema de Gestión de Pedidos" {
+    usecase "Ver Lista de Pedidos" as UC0
     usecase "Crear Pedido" as UC1
     usecase "Agregar Artículo" as UC2
     usecase "Eliminar Artículo" as UC3
@@ -13,19 +14,31 @@ package "Sistema de Gestión de Pedidos" {
     usecase "Calcular Total" as UC6
     usecase "Actualizar Pedido" as UC7
     usecase "Eliminar Pedido" as UC8
+    usecase "Editar Pedido" as UC9
+    usecase "Modificar Cantidad Artículo" as UC10
+    usecase "Modificar Descuento Artículo" as UC11
+    usecase "Guardar en JSON" as UC12
 }
 
+Usuario --> UC0
 Usuario --> UC1
 Usuario --> UC4
-Usuario --> UC7
 Usuario --> UC8
+Usuario --> UC9
 
+UC0 .-> UC4 : include
 UC1 .-> UC2 : include
 UC1 .-> UC6 : include
+UC1 .-> UC12 : include
 UC2 .-> UC5 : include
 UC4 .-> UC6 : include
 UC7 --> UC2 : puede
 UC7 --> UC3 : puede
+UC8 .-> UC12 : include
+UC9 .-> UC10 : include
+UC9 .-> UC11 : include
+UC9 .-> UC6 : include
+UC9 .-> UC12 : include
 
 UC1 <-- UC3 : modificar
 

@@ -1,5 +1,5 @@
 package com.example.controller;
-import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.SwingUtilities;
@@ -7,11 +7,9 @@ import javax.swing.SwingUtilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.model.Article;
 import com.example.model.Order;
+import com.example.service.OrderService;
 import com.example.view.OrderView;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Main {
     
@@ -19,41 +17,29 @@ public class Main {
     public static void main(String[] args) {
         
         log.info("STARTING ORDER MANAGMENT SYSTEM.....");
-        ObjectMapper mapper = new ObjectMapper();
+        
+        OrderService orderService = new OrderService();
+        List<Order> orders = orderService.loadOrders();
 
-        try(InputStream inputStream = Main.class.getResourceAsStream("/orders.json")){
-            //System.out.println(Main.class.getResource("/orders.json"));
-
-            if(inputStream == null){
-                log.error("no se encontro el Order.json");
-                return;
+        if(orders.isEmpty()){
+            log.warn("No se cargaron pedidos o la lista está vacía");
+        } else {
+            log.info("Pedidos cargados:");
+            for(Order o : orders) {
+                log.info("  - {}", o.getIdPedido());
             }
-            List<Order> orders = mapper.readValue(inputStream,new TypeReference<List<Order>>(){});
-
-
-            for(int i = 0; i < orders.size();i++){
-System.out.println("=============================================================");
-                    Order order = orders.get(i);
-                    log.debug("Loaded order: {}" , order.getIdPedido());
-                    System.out.println("\n PEDIDO : " + order.getIdPedido());
-
-                    for(int j = 0; j < order.getListaArticulos().size();j++){
-                        Article articulos = order.getListaArticulos().get(j);
-                        System.out.println(" => " + articulos);
-                    }
-                    System.out.print("------------------------------------------------------------------------\n");
-                    System.out.println("Total bruto => "+ order.getGrossTotal());
-                    System.out.println("Total descuento => " + order.getDiscountedTotal());
-//Inicializamos en la clase Main.java el MVC
-                     SwingUtilities.invokeLater(() -> {
-                    OrderView view = new OrderView();
-                        new OrderController(view, orders);
-                });
-
-            }
-        }catch(Exception e){
-                log.error("Error al leer .JSON " , e.getMessage());
         }
+
+        log.info("Total pedidos cargados: {}", orders.size());
+        
+        // Convertir a ArrayList mutable
+        List<Order> ordersList = new ArrayList<>(orders);
+        
+        //Inicializamos en la clase Main.java el MVC
+        SwingUtilities.invokeLater(() -> {
+            OrderView view = new OrderView(ordersList, orderService);
+            new OrderController(view, ordersList, orderService);
+        });
 
     }
     
